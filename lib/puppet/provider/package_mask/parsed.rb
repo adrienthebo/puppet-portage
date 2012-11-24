@@ -1,6 +1,6 @@
 # Trivial provider for managing a list of depend atoms to mask
 require 'puppet/provider/portagefile'
- 
+
 Puppet::Type.type(:package_mask).provide(:parsed,
     :parent => Puppet::Provider::ParsedFile,
     :default_target => "/etc/portage/package.mask/default",
@@ -10,3 +10,5 @@ Puppet::Type.type(:package_mask).provide(:parsed,
   desc "The package_mask provider backed by parsedfile"
   record_line :parsed, :fields => %w{name}, :rts => true
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:

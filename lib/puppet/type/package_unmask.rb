@@ -1,6 +1,6 @@
 Puppet::Type.newtype(:package_unmask) do
   @doc = "Unmask packages in portage.
-  
+
       package_unmask { 'app-admin/puppet-2.7.1':
         target  => 'puppet',
       }"
@@ -40,3 +40,5 @@ Puppet::Type.newtype(:package_unmask) do
     end
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:

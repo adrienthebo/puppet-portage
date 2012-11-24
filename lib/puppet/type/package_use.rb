@@ -1,6 +1,6 @@
 Puppet::Type.newtype(:package_use) do
   @doc = "Set use flags for a package.
-  
+
       package_use { 'app-admin/puppet':
         use_flags => ['augeas', '-rrdtool'],
         target  => 'puppet',
@@ -75,3 +75,5 @@ Puppet::Type.newtype(:package_use) do
     end
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:

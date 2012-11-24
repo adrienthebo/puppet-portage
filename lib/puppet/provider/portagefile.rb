@@ -31,3 +31,5 @@ class Puppet::Provider::PortageFile < Puppet::Provider::ParsedFile
     str
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:
