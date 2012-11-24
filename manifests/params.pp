@@ -26,3 +26,5 @@ class gentoo::params {
     # EMERGE_DEFAULT_OPTS
     $emerge_opts        = ""
 }
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:

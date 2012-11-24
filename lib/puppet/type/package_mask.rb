@@ -1,6 +1,6 @@
 Puppet::Type.newtype(:package_mask) do
   @doc = "Mask packages in portage.
-  
+
       package_mask { 'app-admin/chef':
         target  => 'chef',
       }"
@@ -40,3 +40,5 @@ Puppet::Type.newtype(:package_mask) do
     end
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:

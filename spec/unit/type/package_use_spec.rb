@@ -62,3 +62,5 @@ describe type_class do
     end
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:
