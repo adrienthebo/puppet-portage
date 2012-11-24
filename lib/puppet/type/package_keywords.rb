@@ -75,3 +75,5 @@ Puppet::Type.newtype(:package_keywords) do
     end
   end
 end
+
+# vim: set autoindent softtabstop=2 expandtab textwidth=80 shiftwidth=2:
