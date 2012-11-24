@@ -1,5 +1,4 @@
 define gentoo::package (
-  define gentoo::package(
     $package = $title,
     $version = undef,
     $use = undef,
