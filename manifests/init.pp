@@ -4,64 +4,14 @@
 #
 # == Parameters
 #
-# [*global_use*]
-#
-# This variable contains options that control the build behavior of
-# several packages. More information in ebuild(5). Possible USE values
-# can be found in /usr/portage/profiles/use.desc.
-#
-# [*features*]
-#
-# Defines actions portage takes by default. These options should not be
-# changed by anyone but developers and/or maintainers. 'sandbox' is an
-# important part of FEATURES and should not be disabled by default.
-# This is an incremental variable.
-#
-# [*mirrors*]
-#
-# Insert your space-seperated list of local mirrors here. These
-# locations are used to download files before the ones listed in the
-# ebuild scripts. Merging 'mirrorselect' can help.
-#
-# [*sync*]
-#
-# Insert your preferred rsync mirror here. This rsync server is used to
-# sync the local portage tree when `emerge --sync` is run.
-#
-# [*binhost*]
-#
-# This is the host from which portage will grab prebuilt-binary
-# packages. The list is a single entry specifying the full address of
-# the directory serving the tbz2's for your system.
-#
-# Note that it should point to the 'All' directory on the host that
-# creates the binary packages and not to the root of the PKGDIR.
-#
-# [*portdir_overlay*]
-#
-# Defines the directories in which user made ebuilds may be stored and
-# not overwriten when `emerge --sync` is run. This is a space delimited
-# list of directories.
-#
-# [*accept_license*]
-#
-# This variable is used to mask packages based on licensing
-# restrictions. It may contain both license and group names, where
-# group names are prefixed with the '@' symbol.
-#
-# Refer to GLEP 23 for further information: http://www.gentoo.org/proj/en/glep/glep-0023.html
-#
-# [*emerge_opts*]
-#
-# Options to append to the end of the emerge(1) command line on every invocation.
-#
-# [*make_conf*]
+# # [*make_conf*]
 #
 # The path to make.conf.
 #
 # As of 2012-09-09 new systems will use /etc/portage/make.conf, but on older
 # systems this can be /etc/make.conf.
 #
+# # All the other parameters are taken from make.conf(5) man page
 # == Example
 #
 #     class { 'portage':
@@ -78,19 +28,87 @@
 #  * make.conf(5) http://dev.gentoo.org/~zmedico/portage/doc/man/make.conf.5.html
 
 class portage (
-  $global_use      = $portage::params::global_use,
-  $features        = $portage::params::features,
-  $mirrors         = $portage::params::mirrors,
-  $sync            = $portage::params::sync,
-  $binhost         = $portage::params::binhost,
-  $portdir_overlay = $portage::params::portdir_overlay,
-  $accept_license  = $portage::params::accept_license,
-  $emerge_opts     = $portage::params::emerge_opts,
-  $make_conf       = $portage::params::make_conf,
+  $accept_chosts                      = undef,
+  $accept_keywords                    = undef,
+  $accept_license                     = undef,
+  $accept_properties                  = undef,
+  $ccache_dir                         = undef,
+  $ccache_size                        = undef,
+  $cflags                             = undef,
+  $cxxflags                           = undef,
+  $chost                              = undef,
+  $clean_delay                        = undef,
+  $collision_ignore                   = undef,
+  $config_protect                     = undef,
+  $config_protect_mask                = undef,
+  $distdir                            = undef,
+  $doc_symlinks_dir                   = undef,
+  $ebeep_ignore                       = undef,
+  $emerge_default_opts                = undef,
+  $emerge_log_dir                     = undef,
+  $emerge_warning_delay               = undef,
+  $epause_ignore                      = undef,
+  $extra_econf                        = undef,
+  $features                           = undef,
+  $fetchcommand                       = undef,
+  $fclags                             = undef,
+  $fflags                             = undef,
+  $gentoo_mirrors                     = undef,
+  $install_mask                       = undef,
+  $ldflags                            = undef,
+  $makeopts                           = undef,
+  $nocolor                            = undef,
+  $pkgdir                             = undef,
+  $port_logdir                        = undef,
+  $port_logdir_clean                  = undef,
+  $portage_binhost                    = undef,
+  $portage_binhost_header_uri         = undef,
+  $portage_binpkg_tar_opts            = undef,
+  $portage_bunzip2_command            = undef,
+  $portage_bzip2_command              = undef,
+  $portage_checksum_filter            = undef,
+  $portage_compress                   = undef,
+  $portage_compress_flags             = undef,
+  $portage_compress_exclude_suffixes  = undef,
+  $portage_elog_classes               = undef,
+  $portage_elog_system                = undef,
+  $portage_elog_command               = undef,
+  $portage_elog_mailuri               = undef,
+  $portage_elog_mailsubject           = undef,
+  $portage_fetch_checksum_try_mirrors = undef,
+  $portage_fetch_resume_min_size      = undef,
+  $portage_gpg_dir                    = undef,
+  $portage_gpg_key                    = undef,
+  $portage_gpg_signing_command        = undef,
+  $portage_grpname                    = undef,
+  $portage_inst_gid                   = undef,
+  $portage_ionice_command             = undef,
+  $portage_niceness                   = undef,
+  $portage_ro_distdirs                = undef,
+  $portage_rsync_initial_timeout      = undef,
+  $portage_rsync_extra_opts           = undef,
+  $portage_rsync_retries              = undef,
+  $portage_sync_stale                 = undef,
+  $portage_tmpdir                     = undef,
+  $portage_username                   = undef,
+  $portage_workdir_mode               = undef,
+  $portdir                            = undef,
+  $portdir_overlay                    = undef,
+  $qa_strict_execstack                = undef,
+  $qa_strict_wx_load                  = undef,
+  $qa_strict_textrels                 = undef,
+  $qa_strict_flags_ignored            = undef,
+  $qa_strict_multilib_paths           = undef,
+  $qa_strict_prestripped              = undef,
+  $resumecommand                      = undef,
+  $rpmdir                             = undef,
+  $sync                               = undef,
+  $uninstall_ignore                   = undef,
+  $use                                = undef,
+  $make_conf                          = $portage::params::make_conf,
 ) inherits portage::params {
 
   include concat::setup
-  include portage::params
 
   # Add requires for Package provider
   Package {
