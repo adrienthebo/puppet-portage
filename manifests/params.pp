@@ -7,5 +7,7 @@
 # This class does not need to be directly included.
 #
 class portage::params {
-  $make_conf = '/etc/portage/make.conf'
+  $procs_plus_one = $::processorcount + 1
+  $makeopts       = "-j${procs_plus_one}"
+  $make_conf      = '/etc/portage/make.conf'
 }

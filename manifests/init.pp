@@ -56,7 +56,7 @@ class portage (
   $gentoo_mirrors                     = undef,
   $install_mask                       = undef,
   $ldflags                            = undef,
-  $makeopts                           = undef,
+  $makeopts                           = $portage::params::makeopts,
   $nocolor                            = undef,
   $pkgdir                             = undef,
   $port_logdir                        = undef,
