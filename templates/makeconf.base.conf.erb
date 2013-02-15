@@ -1,33 +1,231 @@
-# Use flags
-USE="<%= global_use %>"
-
-# Gentoo Features
-FEATURES="<%= features %>"
-
-# Mirrors
-GENTOO_MIRRORS="<%= mirrors %>"
-SYNC="<%= sync %>"
-
-# Portage overlays
-PORTDIR_OVERLAY="<%= portdir_overlay %>"
-
-# Licenses we accept outside of the norm
+<% if @accept_chosts -%>
+ACCEPT_CHOSTS="<%= accept_chosts %>"
+<% end -%>
+<% if @accept_keywords -%>
+ACCEPT_KEYWORDS="<%= accept_keywords %>"
+<% end -%>
+<% if @accept_license -%>
 ACCEPT_LICENSE="<%= accept_license %>"
-
-<% if binhost != nil -%>
-# Binhost
-PORTAGE_BINHOST="<%= binhost %>"
 <% end -%>
-
-<% if emerge_opts != nil -%>
-EMERGE_DEFAULT_OPTS="<%= emerge_opts %>"
+<% if @accept_properties -%>
+ACCEPT_PROPERTIES="<%= accept_properties %>"
 <% end -%>
-
-CHOST="<%= hardwaremodel %>-pc-linux-gnu"
-CFLAGS="-O2 -pipe"
-CXXFLAGS="${CFLAGS}"
-
-MAKEOPTS="-j<%= processorcount %>"
+<% if @ccache_dir -%>
+CCACHE_DIR="<%= ccache_dir %>"
+<% end -%>
+<% if @ccache_size -%>
+CCACHE_SIZE="<%= ccache_size %>"
+<% end -%>
+<% if @cflags -%>
+CFLAGS="<%= cflags %>"
+<% end -%>
+<% if @cxxflags -%>
+CXXFLAGS="<%= cxxflags %>"
+<% end -%>
+<% if @chost -%>
+CHOST="<%= chost %>"
+<% end -%>
+<% if @clean_delay -%>
+CLEAN_DELAY="<%= clean_delay %>"
+<% end -%>
+<% if @collision_ignore -%>
+COLLISION_IGNORE="<%= collision_ignore %>"
+<% end -%>
+<% if @config_protect -%>
+CONFIG_PROTECT="<%= config_protect %>"
+<% end -%>
+<% if @config_protect_mask -%>
+CONFIG_PROTECT_MASK="<%= config_protect_mask %>"
+<% end -%>
+<% if @distdir -%>
+DISTDIR="<%= distdir %>"
+<% end -%>
+<% if @doc_symlinks_dir -%>
+DOC_SYMLINKS_DIR="<%= doc_symlinks_dir %>"
+<% end -%>
+<% if @ebeep_ignore -%>
+EBEEP_IGNORE="<%= ebeep_ignore %>"
+<% end -%>
+<% if @emerge_default_opts -%>
+EMERGE_DEFAULT_OPTS="<%= emerge_default_opts %>"
+<% end -%>
+<% if @emerge_log_dir -%>
+EMERGE_LOG_DIR="<%= emerge_log_dir %>"
+<% end -%>
+<% if @emerge_warning_delay -%>
+EMERGE_WARNING_DELAY="<%= emerge_warning_delay %>"
+<% end -%>
+<% if @epause_ignore -%>
+EPAUSE_IGNORE="<%= epause_ignore %>"
+<% end -%>
+<% if @extra_econf -%>
+EXTRA_ECONF="<%= extra_econf %>"
+<% end -%>
+<% if @features -%>
+FEATURES="<%= features %>"
+<% end -%>
+<% if @fetchcommand -%>
+FETCHCOMMAND="<%= fetchcommand %>"
+<% end -%>
+<% if @fcflags -%>
+FCFLAGS="<%= fcflags %>"
+<% end -%>
+<% if @fflags -%>
+FFLAGS="<%= fflags %>"
+<% end -%>
+<% if @gentoo_mirrors -%>
+GENTOO_MIRRORS="<%= gentoo_mirrors %>"
+<% end -%>
+<% if @install_mask -%>
+INSTALL_MASK="<%= install_mask %>"
+<% end -%>
+<% if @ldflags -%>
+LDFLAGS="<%= ldflags %>"
+<% end -%>
+<% if @makeopts -%>
+MAKEOPTS="<%= makeopts %>"
+<% end -%>
+<% if @nocolor -%>
+NOCOLOR="<%= nocolor %>"
+<% end -%>
+<% if @pkgdir -%>
+PKGDIR="<%= pkgdir %>"
+<% end -%>
+<% if @port_logdir -%>
+PORT_LOGDIR="<%= port_logdir %>"
+<% end -%>
+<% if @port_logdir_clean -%>
+PORT_LOGDIR_CLEAN="<%= port_logdir_clean %>"
+<% end -%>
+<% if @portage_binhost -%>
+PORTAGE_BINHOST="<%= portage_binhost %>"
+<% end -%>
+<% if @portage_binhost_header_uri -%>
+PORTAGE_BINHOST_HEADER_URI="<%= portage_binhost_header_uri %>"
+<% end -%>
+<% if @portage_binpkg_tar_opts -%>
+PORTAGE_BINPKG_TAR_OPTS="<%= portage_binpkg_tar_opts %>"
+<% end -%>
+<% if @portage_bunzip2_command -%>
+PORTAGE_BUNZIP2_COMMAND="<%= portage_bunzip2_command %>"
+<% end -%>
+<% if @portage_bzip2_command -%>
+PORTAGE_BZIP2_COMMAND="<%= portage_bzip2_command %>"
+<% end -%>
+<% if @portage_checksum_filter -%>
+PORTAGE_CHECKSUM_FILTER="<%= portage_checksum_filter %>"
+<% end -%>
+<% if @portage_compress -%>
+PORTAGE_COMPRESS="<%= portage_compress %>"
+<% end -%>
+<% if @portage_compress_flags -%>
+PORTAGE_COMPRESS_FLAGS="<%= portage_compress_flags %>"
+<% end -%>
+<% if @portage_compress_exclude_suffixes -%>
+PORTAGE_COMPRESS_EXCLUDE_SUFFIXES="<%= portage_compress_exclude_suffixes %>"
+<% end -%>
+<% if @portage_elog_classes -%>
+PORTAGE_ELOG_CLASSES="<%= portage_elog_classes %>"
+<% end -%>
+<% if @portage_elog_system -%>
+PORTAGE_ELOG_SYSTEM="<%= portage_elog_system %>"
+<% end -%>
+<% if @portage_elog_command -%>
+PORTAGE_ELOG_COMMAND="<%= portage_elog_command %>"
+<% end -%>
+<% if @portage_elog_mailuri -%>
+PORTAGE_ELOG_MAILURI="<%= portage_elog_mailuri %>"
+<% end -%>
+<% if @portage_elog_mailsubject -%>
+PORTAGE_ELOG_MAILSUBJECT="<%= portage_elog_mailsubject %>"
+<% end -%>
+<% if @portage_fetch_checksum_try_mirrors -%>
+PORTAGE_FETCH_CHECKSUM_TRY_MIRRORS="<%= portage_fetch_checksum_try_mirrors %>"
+<% end -%>
+<% if @portage_fetch_resume_min_size -%>
+PORTAGE_FETCH_RESUME_MIN_SIZE="<%= portage_fetch_resume_min_size %>"
+<% end -%>
+<% if @portage_gpg_dir -%>
+PORTAGE_GPG_DIR="<%= portage_gpg_dir %>"
+<% end -%>
+<% if @portage_gpg_signing_command -%>
+PORTAGE_GPG_SIGNING_COMMAND="<%= portage_gpg_signing_command %>"
+<% end -%>
+<% if @portage_grpname -%>
+PORTAGE_GRPNAME="<%= portage_grpname %>"
+<% end -%>
+<% if @portage_inst_gid -%>
+PORTAGE_INST_GID="<%= portage_inst_gid %>"
+<% end -%>
+<% if @portage_ionice_command -%>
+PORTAGE_IONICE_COMMAND="<%= portage_ionice_command %>"
+<% end -%>
+<% if @portage_niceness -%>
+PORTAGE_NICENESS="<%= portage_niceness %>"
+<% end -%>
+<% if @portage_ro_distdirs -%>
+PORTAGE_RO_DISTDIRS="<%= portage_ro_distdirs %>"
+<% end -%>
+<% if @portage_rsync_initial_timeout -%>
+PORTAGE_RSYNC_INITIAL_TIMEOUT="<%= portage_rsync_initial_timeout %>"
+<% end -%>
+<% if @portage_rsync_extra_opts -%>
+PORTAGE_RSYNC_EXTRA_OPTS="<%= portage_rsync_extra_opts %>"
+<% end -%>
+<% if @portage_rsync_retries -%>
+PORTAGE_RSYNC_RETRIES="<%= portage_rsync_retries %>"
+<% end -%>
+<% if @portage_sync_stale -%>
+PORTAGE_SYNC_STALE="<%= portage_sync_stale %>"
+<% end -%>
+<% if @portage_tmpdir -%>
+PORTAGE_TMPDIR="<%= portage_tmpdir %>"
+<% end -%>
+<% if @portage_username -%>
+PORTAGE_USERNAME="<%= portage_username %>"
+<% end -%>
+<% if @portage_workdir_mode -%>
+PORTAGE_WORKDIR_MODE="<%= portage_workdir_mode %>"
+<% end -%>
+<% if @portdir -%>
+PORTDIR="<%= portdir %>"
+<% end -%>
+<% if @portdir_overlay -%>
+PORTDIR_OVERLAY="<%= portdir_overlay %>"
+<% end -%>
+<% if @qa_strict_execstack -%>
+QA_STRICT_EXECSTACK="<%= qa_strict_execstack %>"
+<% end -%>
+<% if @qa_strict_wx_load -%>
+QA_STRICT_WX_LOAD="<%= qa_strict_wx_load %>"
+<% end -%>
+<% if @qa_strict_textrels -%>
+QA_STRICT_TEXTRELS="<%= qa_strict_textrels %>"
+<% end -%>
+<% if @qa_strict_flags_ignored -%>
+QA_STRICT_FLAGS_IGNORED="<%= qa_strict_flags_ignored %>"
+<% end -%>
+<% if @qa_strict_multilib_paths -%>
+QA_STRICT_MULTILIB_PATHS="<%= qa_strict_multilib_paths %>"
+<% end -%>
+<% if @qa_strict_prestripped -%>
+QA_STRICT_PRESTRIPPED="<%= qa_strict_prestripped %>"
+<% end -%>
+<% if @resumecommand -%>
+RESUMECOMMAND="<%= resumecommand %>"
+<% end -%>
+<% if @rpmdir -%>
+RPMDIR="<%= rpmdir %>"
+<% end -%>
+<% if @sync -%>
+SYNC="<%= sync %>"
+<% end -%>
+<% if @uninstall_ignore -%>
+UNISTALL_IGNORE="<%= uninstall_ignore %>"
+<% end -%>
+<% if @use -%>
+USE="<%= use %>"
+<% end -%>
 
 # extra settings
 

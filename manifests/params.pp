@@ -7,16 +7,7 @@
 # This class does not need to be directly included.
 #
 class portage::params {
-
-  $global_use = '$USE'
-  $features   = '$FEATURES'
-  $mirrors    = 'http://distfiles.gentoo.org'
-  $sync       = 'rsync://rsync.gentoo.org/gentoo-portage'
-  $binhost    = ''
-
-  $portdir_overlay = '$PORTDIR_OVERLAY'
-  $accept_license  = '$ACCEPT_LICENSE'
-  $emerge_opts     = ''
-
-  $make_conf = '/etc/portage/make.conf'
+  $procs_plus_one = $::processorcount + 1
+  $makeopts       = "-j${procs_plus_one}"
+  $make_conf      = '/etc/portage/make.conf'
 }
