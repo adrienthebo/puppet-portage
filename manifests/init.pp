@@ -132,6 +132,7 @@ class portage (
     command     => '/usr/bin/emerge --reinstall=changed-use @world',
     require     => Concat[$make_conf],
     refreshonly => true,
+    timeout     => 43200,
   }
 
   concat { $make_conf:
