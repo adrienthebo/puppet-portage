@@ -12,7 +12,7 @@ Puppet::Type.type(:package_set).provide(:package_set) do
 
     def destroy
     # Remove the whole set using --depclean
-    emerge "--depclean"  "@#{resource[:name]}"
+    emerge "--depclean", "@#{resource[:name]}"
   end
 
     def exists?
