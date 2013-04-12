@@ -10,17 +10,17 @@ Puppet::Type.type(:package_set).provide(:package_set) do
     emerge "--noreplace", "@#{resource[:name]}"
   end
 
-    def destroy
+  def destroy
     # Remove the whole set
     emerge "--unmerge", "@#{resource[:name]}"
   end
 
-    def exists?
+  def exists?
     # Cross reference /var/lib/portage/world_sets with /etc/portage/sets/* to check if a set is installed.
     #
     # If it is loop through /etc/portage/sets/setname and verify all listed packages are installed.
-        File.readlines('/var/lib/portage/world_sets').each do | line |
-      if line.include?(resource[:name]) then
+    File.readlines('/var/lib/portage/world_sets').each do | line |
+      if line == "@#{resource[:name]}\n" then
         installed_packages = eix '--nocolor', '--pure-packages', '--stable', '--installed', '--format', '<category>/<name>\n'
         File.readlines("/etc/portage/sets/#{resource[:name]}").each do | pkg_line |
           unless installed_packages.include?(pkg_line) then
@@ -31,6 +31,6 @@ Puppet::Type.type(:package_set).provide(:package_set) do
         return false
       end
     end
-    end
+  end
 
 end
