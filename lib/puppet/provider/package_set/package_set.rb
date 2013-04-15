@@ -6,19 +6,14 @@ Puppet::Type.type(:package_set).provide(:package_set) do
   commands :emerge => '/usr/bin/emerge', :eix => '/usr/bin/eix'
 
   def create
-    # Install the set using --noreplace to prevent needles re-installs of packages.
     emerge "--noreplace", "@#{resource[:name]}"
   end
 
   def destroy
-    # Remove the whole set
     emerge "--unmerge", "@#{resource[:name]}"
   end
 
   def exists?
-    # Cross reference /var/lib/portage/world_sets with /etc/portage/sets/* to check if a set is installed.
-    #
-    # If it is loop through /etc/portage/sets/setname and verify all listed packages are installed.
     setfile = File.readlines('/var/lib/portage/world_sets')
     if setfile.size == 0 then
       return false
