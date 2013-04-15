@@ -19,20 +19,20 @@ Puppet::Type.type(:package_set).provide(:package_set) do
     # Cross reference /var/lib/portage/world_sets with /etc/portage/sets/* to check if a set is installed.
     #
     # If it is loop through /etc/portage/sets/setname and verify all listed packages are installed.
-    if File.readlines('/var/lib/portage/world_sets').size == 0 then
+    setfile = File.readlines('/var/lib/portage/world_sets')
+    if setfile.size == 0 then
       return false
     end
-    File.readlines('/var/lib/portage/world_sets').each do | line |
+    setfile.each do | line |
       if line == "@#{resource[:name]}\n" then
         installed_packages = eix '--nocolor', '--pure-packages', '--stable', '--installed', '--format', '<category>/<name>\n'
         File.readlines("/etc/portage/sets/#{resource[:name]}").each do | pkg_line |
           unless installed_packages.include?(pkg_line) then
-            Puppet.warning "Failed #{resource[:name]}"
             return false
           end
         end
       else
-        unless line.include?("@#{resource[:name]}\n")
+        unless setfile.include?("@#{resource[:name]}\n") then
           return false
         end
       end
