@@ -27,13 +27,16 @@ Puppet::Type.type(:package_set).provide(:package_set) do
         installed_packages = eix '--nocolor', '--pure-packages', '--stable', '--installed', '--format', '<category>/<name>\n'
         File.readlines("/etc/portage/sets/#{resource[:name]}").each do | pkg_line |
           unless installed_packages.include?(pkg_line) then
+            Puppet.warning "Failed #{resource[:name]}"
             return false
           end
         end
       else
-        return false
+        unless line.include?("@#{resource[:name]}\n")
+          return false
+        end
       end
-    end
   end
+end
 
 end
