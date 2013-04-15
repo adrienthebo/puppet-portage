@@ -31,7 +31,7 @@ Puppet::Type.type(:package_set).provide(:package_set) do
           return false
         end
       end
+    end
   end
-end
 
 end
