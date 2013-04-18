@@ -22,6 +22,7 @@ Puppet::Type.type(:package_set).provide(:package_set) do
       if line == "@#{resource[:name]}\n" then
         installed_packages = eix '--nocolor', '--pure-packages', '--installed', '--format', '<category>/<name>\n'
         File.readlines("/etc/portage/sets/#{resource[:name]}").each do | pkg_line |
+          next if pkg_line[0, 1] == '#'
           unless installed_packages.include?(pkg_line) then
             return false
           end
@@ -31,7 +32,7 @@ Puppet::Type.type(:package_set).provide(:package_set) do
           return false
         end
       end
-    end
   end
+end
 
 end
