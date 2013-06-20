@@ -12,6 +12,11 @@ Puppet::Type.type(:eselect).provide(:eselect) do
   end
 
   def set=(target)
-    eselect(resource[:name], 'set', target)
+    m, subm = resource[:name].split('_', 2)
+    if subm
+       eselect(m, 'set', subm, target)
+    else
+       eselect(resource[:name], 'set', target)
+    end
   end
 end
