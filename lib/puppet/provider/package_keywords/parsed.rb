@@ -1,4 +1,4 @@
-require 'puppet/provider/portagefile'
+require_relative '../portagefile'
 require_relative '../util/portage'
 
 Puppet::Type.type(:package_keywords).provide(:parsed,
