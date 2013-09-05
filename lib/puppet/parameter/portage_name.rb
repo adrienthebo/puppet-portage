@@ -1,4 +1,4 @@
-require_relative '../util/portage'
+require File.expandpath(File.join(File.dirname(__FILE__),'..','util','portage'))
 require 'puppet/parameter'
 
 class Puppet::Parameter::PortageName < Puppet::Parameter
