@@ -1,2 +1,0 @@
-#!/usr//bin/env ruby
-puts "#{File.expand_path(File.join(File.dirname(__FILE__),'..','util','portage'))}"
