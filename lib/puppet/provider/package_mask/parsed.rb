@@ -1,5 +1,5 @@
-require File.expandpath(File.join(File.dirname(__FILE__),'..','portagefile'))
-require File.expandpath(File.join(File.dirname(__FILE__),'..','..','util','portage'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','portagefile'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','..','util','portage'))
 
 Puppet::Type.type(:package_mask).provide(:parsed,
   :parent => Puppet::Provider::PortageFile,
