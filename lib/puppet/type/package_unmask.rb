@@ -1,7 +1,7 @@
 require 'puppet/property/portage_version'
 require 'puppet/property/portage_slot'
 require 'puppet/parameter/portage_name'
-require 'puppet/util/portage'
+require_relative '../util/portage'
 
 Puppet::Type.newtype(:package_unmask) do
   @doc = "Unmask packages in portage.

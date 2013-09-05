@@ -1,7 +1,7 @@
 require 'puppet/property/portage_version'
 require 'puppet/property/portage_slot'
 require 'puppet/parameter/portage_name'
-require 'puppet/util/portage'
+require_relative '../util/portage'
 
 Puppet::Type.newtype(:package_mask) do
   @doc = "Mask packages in portage.
