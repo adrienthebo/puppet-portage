@@ -1,6 +1,6 @@
 # Common base class for gentoo package_* providers. It aggregates some of the
 # boilerplate that's shared between the providers.
-require File.expandpath(File.join(File.dirname(__FILE__),'..','util','portage'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','util','portage'))
 require 'puppet/provider/parsedfile'
 class Puppet::Provider::PortageFile < Puppet::Provider::ParsedFile
 
