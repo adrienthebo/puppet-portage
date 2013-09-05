@@ -1,6 +1,6 @@
-require 'puppet/property/portage_version'
-require 'puppet/property/portage_slot'
-require 'puppet/parameter/portage_name'
+require_relative '../property/portage_version'
+require_relative '../property/portage_slot'
+require_relative '../parameter/portage_name'
 require_relative '../util/portage'
 
 Puppet::Type.newtype(:package_keywords) do
