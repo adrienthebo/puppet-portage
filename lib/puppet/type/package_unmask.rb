@@ -1,7 +1,7 @@
-require_relative '../property/portage_version'
-require_relative '../property/portage_slot'
-require_relative '../parameter/portage_name'
-require_relative '../util/portage'
+require File.expandpath(File.join(File.dirname(__FILE__),'..','property','portage_version'))
+require File.expandpath(File.join(File.dirname(__FILE__),'..','property','portage_slot'))
+require File.expandpath(File.join(File.dirname(__FILE__),'..','parameter','portage_name'))
+require File.expandpath(File.join(File.dirname(__FILE__),'..','util','portage'))
 
 Puppet::Type.newtype(:package_unmask) do
   @doc = "Unmask packages in portage.
