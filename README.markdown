@@ -107,8 +107,11 @@ reading the variable of the equivalent fact.
 
 For eselect modules that have submodules (eg php):
 
-    eselect { 'php_apache2':
+    eselect { 'php:apache2':
       set => 'php5.3',
+    }
+    eselect { 'php:cli':
+      set => 'php5.4',
     }
 
 See Also
