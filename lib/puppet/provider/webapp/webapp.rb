@@ -1,4 +1,4 @@
-require 'puppet/util/webapp'
+require File.expand_path(File.join(File.dirname(__FILE__),'..','..','util','webapp'))
 
 Puppet::Type.type(:webapp).provide(:webapp) do
 

@@ -2,6 +2,7 @@
 # boilerplate that's shared between the providers.
 require File.expand_path(File.join(File.dirname(__FILE__),'..','util','portage'))
 require 'puppet/provider/parsedfile'
+
 class Puppet::Provider::PortageFile < Puppet::Provider::ParsedFile
 
   text_line :comment, :match => /^#/;
