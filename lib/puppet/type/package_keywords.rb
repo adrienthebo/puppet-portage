@@ -1,7 +1,7 @@
-require 'puppet/property/portage_version'
-require 'puppet/property/portage_slot'
-require 'puppet/parameter/portage_name'
-require 'puppet/util/portage'
+require File.expand_path(File.join(File.dirname(__FILE__),'..','property','portage_version'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','property','portage_slot'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','parameter','portage_name'))
+require File.expand_path(File.join(File.dirname(__FILE__),'..','util','portage'))
 
 Puppet::Type.newtype(:package_keywords) do
   @doc = "Set keywords for a package.
