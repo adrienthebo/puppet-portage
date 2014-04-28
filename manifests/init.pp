@@ -63,6 +63,7 @@ class portage (
     refreshonly => true,
     timeout     => 43200,
     provider    => shell,
+    path        => ['/bin/, '/usr/bin', '/usr/local/bin'],
   }
 
   concat { $make_conf:
