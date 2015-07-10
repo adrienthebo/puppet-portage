@@ -1,4 +1,3 @@
-require 'facter/util/resolution'
 module Facter::Util::Portage
   module_function
 
