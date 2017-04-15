@@ -7,6 +7,7 @@ if Facter.value(:operatingsystem) == 'Gentoo'
   eselect_modules = eselect_modules - eselect_modules_blacklist
   eselect_modules_multitarget = {
     'php' => ['cli', 'apache2', 'fpm', 'cgi'],
+    'java-vm' => ['system', 'user'],
   }
 
   def facter_add(name, output)
