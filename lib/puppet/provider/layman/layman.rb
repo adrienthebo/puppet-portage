@@ -4,8 +4,8 @@ Puppet::Type.type(:layman).provide(:layman) do
 
   commands :layman => '/usr/bin/layman'
 
-  confine :operatingsystem => :gentoo
-  defaultfor :operatingsystem => :gentoo
+  confine :osfamily => :gentoo
+  defaultfor :osfamily => :gentoo
 
   def self.instances
     overlays.collect do |name|
