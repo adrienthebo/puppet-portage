@@ -61,6 +61,16 @@ type.
 
 `env` can be either a string or an array of strings.
 
+### package\_set
+
+    package_set { 'core-packages':
+      ensure => present,
+    }
+
+`set` should correspond to a file name in `/etc/portage/sets`, if one or more
+packages in the set are not installed or running old versions puppet will
+execure `emerge --oneshot @core-packages` to install or update missing packages.
+
 ## make.conf
 
 The default location of `make.conf` is `/etc/portage/make.conf`
