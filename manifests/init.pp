@@ -23,6 +23,7 @@
 #  * make.conf(5) http://dev.gentoo.org/~zmedico/portage/doc/man/make.conf.5.html
 
 class portage (
+  Boolean $manage_make_conf       = true,
   $make_conf                      = $portage::params::make_conf,
   $make_conf_remerge              = $portage::params::make_conf_remerge,
   $portage_ensure                 = $portage::params::portage_ensure,
@@ -65,29 +66,30 @@ class portage (
     ensure => directory;
   }
 
-  exec { 'changed_makeconf':
-    command     => "${emerge_command} -1 --changed-use $(qlist -vIC | sed \'s/^/=/\')",
-    refreshonly => true,
-    timeout     => 43200,
-    provider    => shell,
-    path        => ['/usr/local/sbin','/usr/local/bin',
-                    '/usr/sbin','/usr/bin','/sbin','/bin'],
-  }
+  if $manage_make_conf {
+    exec { 'changed_makeconf':
+      command     => "${emerge_command} -1 --changed-use $(qlist -vIC | sed \'s/^/=/\')",
+      refreshonly => true,
+      timeout     => 43200,
+      provider    => shell,
+      path        => ['/usr/local/sbin','/usr/local/bin',
+                      '/usr/sbin','/usr/bin','/sbin','/bin'],
+    }
 
-  concat { $make_conf:
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
-  }
+    concat { $make_conf:
+      owner => 'root',
+      group => 'root',
+      mode  => '0644',
+    }
 
-  if ($make_conf_remerge) {
-    Concat[$make_conf] ~> Exec['changed_makeconf']
-  }
+    if ($make_conf_remerge) {
+      Concat[$make_conf] ~> Exec['changed_makeconf']
+    }
 
-  concat::fragment { 'makeconf_header':
-    target  => $make_conf,
-    content => template('portage/makeconf.header.conf.erb'),
-    order   => '00',
+    concat::fragment { 'makeconf_header':
+      target  => $make_conf,
+      content => template('portage/makeconf.header.conf.erb'),
+      order   => '00',
+    }
   }
-
 }
