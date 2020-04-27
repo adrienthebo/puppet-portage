@@ -3,7 +3,7 @@ require 'puppet/util/eselect'
 
 Puppet::Type.type(:eselect).provide(:eselect) do
 
-  confine :operatingsystem => :gentoo
+  confine :osfamily => :gentoo
 
   commands Puppet::Util::Eselect::COMMANDS
 
